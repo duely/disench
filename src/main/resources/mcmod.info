@@ -1,0 +1,21 @@
+[
+  {
+    "modid": "Enchantment Disabler",
+    "name": "disench",
+    "description": "Allowing specific enchantments to be disabled at runtime through nefarious and uncertain means.",
+    "version": "${version}",
+    "credits": "Noobanidus",
+    "logoFile": "assets/disench/textures/logo.png",
+    "mcversion": "${mc_version}",
+    "url": "http://github.com/duely/disench",
+    "updateUrl": "",
+    "authorList": [
+      "Noobanidus"
+    ],
+    "parent": "",
+    "screenshots": [],
+    "dependencies": [
+      "forge"
+    ]
+  }
+]
