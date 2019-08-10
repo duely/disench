@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Config;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.registries.ForgeRegistry;
@@ -34,7 +35,7 @@ public class Disench {
   }
 
   @Mod.EventHandler
-  public static void loadComplete(FMLLoadCompleteEvent event) {
+  public static void postInit(FMLPostInitializationEvent event) {
     List<ResourceLocation> toRemove = Stream.of(DisenchConfig.enchantments).map(s -> {
       String[] split = s.split(":");
       return new ResourceLocation(split[0], split[1]);
@@ -58,6 +59,10 @@ public class Disench {
       return;
     }
     locked.setAccessible(false);
+  }
+
+  @Mod.EventHandler
+  public static void loadComplete(FMLLoadCompleteEvent event) {
     LOG.info("Enchantment Disabler has done its evil deeds...");
   }
 
